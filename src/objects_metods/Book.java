@@ -1,10 +1,10 @@
 package objects_metods;
 
 public class Book {
-    private String nameOfBook;
+    private final String nameOfBook;
     private int publicationYear;
 
-    private Author author;
+    private final Author author;
 
     public Book(Author author, String nameOfBook, int publicationYear) {
         this.author = author;
