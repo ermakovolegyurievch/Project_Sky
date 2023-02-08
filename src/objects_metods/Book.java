@@ -27,14 +27,13 @@ public class Book {
 
     @Override
     public String toString() {
-        return author.getSurname() + " " + author.getName() + ", " + nameOfBook + ", " + publicationYear;
+        return author + ", " + nameOfBook + ", " + publicationYear;
     }
 
     @Override
     public int hashCode() {
-        int result = nameOfBook == null ? 0 : nameOfBook.hashCode();
-        result = 29 * result + publicationYear;
-        return result;
+        int rsl = nameOfBook == null ? 0 : nameOfBook.hashCode();
+        return 31 * rsl + publicationYear;
     }
 
     @Override

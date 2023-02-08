@@ -8,7 +8,13 @@ public class Library {
         Author author2 = new Author("Рейд", "Тейлор");
         Book book2 = new Book(author2, "Еще одна настоящая любовь", 2023);
         book1.setPublicationYear(2021);
-        System.out.println(book1.toString());
+        System.out.println(author1);
+        System.out.println(author2);
+        System.out.println(author1.hashCode());
+        System.out.println(author2.hashCode());
+        System.out.println(author1.equals(author2));
+        System.out.println(book1);
+        System.out.println(book2);
         System.out.println(book1.hashCode());
         System.out.println(book2.hashCode());
         System.out.println(book1.equals(book2));
