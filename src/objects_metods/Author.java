@@ -1,21 +1,24 @@
 package objects_metods;
 
-public class Author {
-    private String surname;
-    private String name;
+import java.util.Objects;
 
+public record Author(String surname, String name) {
 
-    public Author(String surname, String name) {
-        this.surname = surname;
-        this.name = name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Author author)) return false;
+        return surname.equals(author.surname) && name.equals(author.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(surname, name);
     }
 
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return surname + " " + name;
     }
 }
