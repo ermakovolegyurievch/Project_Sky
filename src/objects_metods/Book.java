@@ -1,5 +1,7 @@
 package objects_metods;
 
+import java.util.Objects;
+
 public class Book {
     private final String nameOfBook;
     private int publicationYear;
@@ -31,18 +33,14 @@ public class Book {
     }
 
     @Override
-    public int hashCode() {
-        int rsl = nameOfBook == null ? 0 : nameOfBook.hashCode();
-        return 31 * rsl + publicationYear;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book book)) return false;
+        return getPublicationYear() == book.getPublicationYear() && getNameOfBook().equals(book.getNameOfBook()) && author.equals(book.author);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Book that = (Book) obj;
-        if (author != that.author) return false;
-        if (publicationYear != that.publicationYear) return false;
-        return nameOfBook.equals(that.nameOfBook);
+    public int hashCode() {
+        return Objects.hash(getNameOfBook(), getPublicationYear(), author);
     }
 }
